@@ -1,0 +1,10 @@
+G:\Instructions\Project Analyst\ZAL\0685_CRC_Daily_DB1\0685_CRC_Daily_DB1\bin\Debug\0685_CRC_Daily_DB1.exe.config
+G:\Instructions\Project Analyst\ZAL\0685_CRC_Daily_DB1\0685_CRC_Daily_DB1\bin\Debug\0685_CRC_Daily_DB1.exe
+G:\Instructions\Project Analyst\ZAL\0685_CRC_Daily_DB1\0685_CRC_Daily_DB1\bin\Debug\0685_CRC_Daily_DB1.pdb
+G:\Instructions\Project Analyst\ZAL\0685_CRC_Daily_DB1\0685_CRC_Daily_DB1\obj\Debug\0685_CRC_Daily_DB1.csprojAssemblyReference.cache
+G:\Instructions\Project Analyst\ZAL\0685_CRC_Daily_DB1\0685_CRC_Daily_DB1\obj\Debug\_0685_CRC_Daily_DB1.Form1.resources
+G:\Instructions\Project Analyst\ZAL\0685_CRC_Daily_DB1\0685_CRC_Daily_DB1\obj\Debug\_0685_CRC_Daily_DB1.Properties.Resources.resources
+G:\Instructions\Project Analyst\ZAL\0685_CRC_Daily_DB1\0685_CRC_Daily_DB1\obj\Debug\0685_CRC_Daily_DB1.csproj.GenerateResource.cache
+G:\Instructions\Project Analyst\ZAL\0685_CRC_Daily_DB1\0685_CRC_Daily_DB1\obj\Debug\0685_CRC_Daily_DB1.csproj.CoreCompileInputs.cache
+G:\Instructions\Project Analyst\ZAL\0685_CRC_Daily_DB1\0685_CRC_Daily_DB1\obj\Debug\0685_CRC_Daily_DB1.exe
+G:\Instructions\Project Analyst\ZAL\0685_CRC_Daily_DB1\0685_CRC_Daily_DB1\obj\Debug\0685_CRC_Daily_DB1.pdb

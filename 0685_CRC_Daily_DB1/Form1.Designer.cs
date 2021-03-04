@@ -94,8 +94,9 @@
             this.Controls.Add(this.txtDebtor);
             this.Controls.Add(this.lblDebtor);
             this.Controls.Add(this.btnDone);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "0685_CRC_Daily_DB1";
+            this.Text = "0685_CRC_Daily_DB1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
