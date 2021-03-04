@@ -33,6 +33,8 @@
             this.txtDebtor = new System.Windows.Forms.TextBox();
             this.txtActionDate = new System.Windows.Forms.TextBox();
             this.lblActionDate = new System.Windows.Forms.Label();
+            this.lblRemainingTotal = new System.Windows.Forms.Label();
+            this.lblRemainingTotalCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnDone
@@ -46,6 +48,7 @@
             this.btnDone.TabIndex = 0;
             this.btnDone.Text = "Done";
             this.btnDone.UseVisualStyleBackColor = false;
+            this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
             // lblDebtor
             // 
@@ -83,18 +86,39 @@
             this.lblActionDate.TabIndex = 3;
             this.lblActionDate.Text = "Action Date";
             // 
+            // lblRemainingTotal
+            // 
+            this.lblRemainingTotal.AutoSize = true;
+            this.lblRemainingTotal.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
+            this.lblRemainingTotal.Location = new System.Drawing.Point(94, 348);
+            this.lblRemainingTotal.Name = "lblRemainingTotal";
+            this.lblRemainingTotal.Size = new System.Drawing.Size(218, 31);
+            this.lblRemainingTotal.TabIndex = 5;
+            this.lblRemainingTotal.Text = "Remaining Total:";
+            // 
+            // lblRemainingTotalCount
+            // 
+            this.lblRemainingTotalCount.AutoSize = true;
+            this.lblRemainingTotalCount.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
+            this.lblRemainingTotalCount.Location = new System.Drawing.Point(314, 348);
+            this.lblRemainingTotalCount.Name = "lblRemainingTotalCount";
+            this.lblRemainingTotalCount.Size = new System.Drawing.Size(0, 31);
+            this.lblRemainingTotalCount.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(544, 400);
+            this.Controls.Add(this.lblRemainingTotalCount);
+            this.Controls.Add(this.lblRemainingTotal);
             this.Controls.Add(this.txtActionDate);
             this.Controls.Add(this.lblActionDate);
             this.Controls.Add(this.txtDebtor);
             this.Controls.Add(this.lblDebtor);
             this.Controls.Add(this.btnDone);
-            this.Name = "0685_CRC_Daily_DB1";
+            this.Name = "Form1";
             this.Text = "0685_CRC_Daily_DB1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -109,6 +133,8 @@
         private System.Windows.Forms.TextBox txtDebtor;
         private System.Windows.Forms.TextBox txtActionDate;
         private System.Windows.Forms.Label lblActionDate;
+        private System.Windows.Forms.Label lblRemainingTotal;
+        private System.Windows.Forms.Label lblRemainingTotalCount;
     }
 }
 

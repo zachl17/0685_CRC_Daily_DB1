@@ -24,21 +24,24 @@ namespace _0685_CRC_Daily_DB1
         SqlConnection cnSQL;
         SqlCommand selectCMD, insertCMD, deleteCMD, updateCMD;
         SqlDataReader dr;
-        string selectSQL, insertSQL;
+        string selectSQL, insertSQL, deleteSQL, updateSQL;
 
         //sql tables
         string dataTable = "[dbo].[AllWorkers.CRCDaily_Data]";
         string doneDataTable = "[dbo].[AllWorkers.CRCDaily_Done]";
         string sqlConnStr = $"Data Source={testDataSource};Initial Catalog={testInitialCatalog};Integrated Security={integratedSecurity};MultipleActiveResultSets={multipleActiveResultSets};";
 
+        Int64 accountID;
+
         public Form1()
         {
             InitializeComponent();
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-
-
+            //get remaining number of accounts in the workers table
+            GetRemainingTotals();
             //populate the form
             PopulateForm();
         }
@@ -62,6 +65,7 @@ namespace _0685_CRC_Daily_DB1
                         {
                             txtDebtor.Text = dr["DebtorNumber"].ToString();
                             txtActionDate.Text = Convert.ToDateTime(dr["ActionDate"]).ToString("MM-dd-yyyy");
+                            accountID = (long)dr["ID"];
                         }
                     }
                     selectCMD.Parameters.Clear();
@@ -70,23 +74,69 @@ namespace _0685_CRC_Daily_DB1
             cnSQL.Close();
         }
 
-        void CountData()
+        void GetRemainingTotals()
         {
-            selectSQL = $@"SELECT COUNT(*) FROM {dataTable}";
+            selectSQL = $@"SELECT COUNT(*) AS 'COUNT' FROM {dataTable}";
 
             using (cnSQL = new SqlConnection(sqlConnStr))
             {
                 cnSQL.Open();
                 using (selectCMD = new SqlCommand(selectSQL, cnSQL))
                 {
-                    selectCMD.ExecuteNonQuery();
+                    dr = selectCMD.ExecuteReader();
+                    //if there are results
+                    if (dr.HasRows)
+                    {
+                        //keep reading until the end
+                        while (dr.Read())
+                        {
+                            lblRemainingTotalCount.Text = dr["COUNT"].ToString();
+                        }
+                    }
+                    selectCMD.Parameters.Clear();
+                }
+            }
+            cnSQL.Close();
+        }
+        void UpdateCurrentAccount()
+        {
+            updateSQL = $@"UPDATE {dataTable} 
+            SET COUNT(*) AS 'COUNT' FROM {dataTable}";
+
+
+
+
+        }
+
+        void StoreToDoneTable()
+        {
+
+        }
+
+
+        public void DeleteAccount(string Table, Int64 id)
+        {
+            //delete current row ID from the database
+            deleteSQL = $"DELETE FROM {Table} WHERE ID = @ID";
+
+            using (cnSQL = new SqlConnection(sqlConnStr))
+            {
+                cnSQL.Open();
+                using (deleteCMD = new SqlCommand(deleteSQL, cnSQL))
+                {
+                    deleteCMD.Parameters.Add("@ID", SqlDbType.BigInt).Value = id;
+                    deleteCMD.ExecuteNonQuery();
                 }
             }
             cnSQL.Close();
         }
 
-        void StoreToDoneTable()
+        private void btnDone_Click(object sender, EventArgs e)
         {
+            //delete the current account from the database
+            DeleteAccount(dataTable, accountID);
+            //get the next account to be worked
+            PopulateForm();
         }
     }
 }
